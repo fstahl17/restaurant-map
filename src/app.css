@@ -1,7 +1,2 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
-
-@layer base {
-    html { @apply font-mono; }
-    .prose { @apply font-mono; }
-  }

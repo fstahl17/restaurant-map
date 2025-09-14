@@ -1,7 +1,11 @@
 <script lang="ts">
     import places from '../../src/data.json';
+<<<<<<< HEAD
     import { slide, fade } from 'svelte/transition';
     import { base } from '$app/paths';
+=======
+    import { fade } from 'svelte/transition';
+>>>>>>> parent of 4f92f58 (style and headline progress)
   
     export let placeId: string;
     export let open = false;
@@ -30,26 +34,17 @@
   
   {#if open}
     <div class="backdrop" on:click={onClose} transition:fade={{ duration: 150 }} />
-        <section class="panel" transition:slide={{ duration: 200 }} role="dialog" aria-modal="true">
+        <section class="panel" transition:fade={{ duration: 200 }} role="dialog" aria-modal="true">
             <button class="close" on:click={onClose} aria-label="Schließen">×</button>
-            <div class="flex flex-wrap justify-left items-center space-x-1.5">
-                <h1 class="text-xl">{name}</h1>
-                <p class="text-xs min-w-[50%] text-gray-500">getestet am: {date}</p>
-            </div>
-            <h2 class="text-sm">{adress}</h2>
-            <div class="flex justify-between items-center pt-2">
-                <h2 class="text-md font-bold pt-3">Restaurant im Kurzüberblick:</h2>
-                <div>
-                    <p>{reviewvon}</p>
-                </div>
-            </div>
+            <h1>{name}</h1>
+            <h2>{adress}</h2>
         </section>
     {/if}
   
   
     <style>
         .backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 999; }
-        .panel { position: fixed; left: 0; right: 0; bottom: 0; height: 70vh; background: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; box-shadow: 0 -10px 30px rgba(0,0,0,.2); z-index: 1000; overflow: auto; padding: 1rem; }
+        .panel { position: fixed; left: 0; right: 0; bottom: 0; height: 60vh; background: #fff; border-top-left-radius: 16px; border-top-right-radius: 16px; box-shadow: 0 -10px 30px rgba(0,0,0,.2); z-index: 1000; overflow: auto; padding: 1rem; }
         .close { position: absolute; right: .75rem; top: .5rem; font-size: 1.5rem; line-height: 1; background: transparent; border: 0; cursor: pointer; }
     </style>
   
