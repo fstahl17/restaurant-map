@@ -1,6 +1,7 @@
 <script lang="ts">
     import places from '../../src/data.json';
     import { slide, fade } from 'svelte/transition';
+    import { base } from '$app/paths';
   
     export let placeId: string;
     export let open = false;
