@@ -3,9 +3,21 @@
     import { env } from '$env/dynamic/public';
     import places from '../../src/data.json';
     import OverlayPanel from '$lib/placeInfo.svelte'
-  
+    import { onMount } from 'svelte';
+
     const apiKey = env.PUBLIC_GOOGLE_MAPS_API_KEY;
-    const mapId = env.PUBLIC_GOOGLE_MAPS_MAP_ID; // einzelner String
+    const mapId = env.PUBLIC_GOOGLE_MAPS_MAP_ID;
+
+    onMount(async () => {
+      const r = await fetch('/.netlify/functions/maps-env');
+      const env = await r.json();
+
+      const s = document.createElement('script');
+      s.src = `https://maps.googleapis.com/maps/api/js?key=${env.apiKey}&v=weekly&map_ids=${env.mapId}`;
+      document.head.appendChild(s);
+    });
+  
+     // einzelner String
     const libraries = ['marker']; // WICHTIG: AdvancedMarker braucht diese Library
 
     const mapOptions = {

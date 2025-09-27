@@ -12,7 +12,8 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
 		"lint": "prettier --check .",
-		"gh-pages": "npm run build && npx gh-pages -d build"
+		"gh-pages": "npm run build && npx gh-pages -d build",
+		"dev:netlify": "netlify dev"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.0.0",
@@ -23,6 +24,7 @@
 		"@tailwindcss/vite": "^4.0.0",
 		"@types/node": "^24.3.1",
 		"gh-pages": "^6.3.0",
+		"netlify-cli": "^23.8.0",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
 		"svelte": "^5.0.0",
@@ -33,9 +35,11 @@
 		"vite": "^7.0.4"
 	},
 	"dependencies": {
+		"@netlify/functions": "^4.2.6",
 		"@steeze-ui/heroicons": "^2.4.2",
 		"convert-csv-to-json": "^3.6.0",
 		"lucide-svelte": "^0.544.0",
+		"netlify": "^23.8.0",
 		"svelte-google-maps-api": "^0.1.5"
 	}
 }
