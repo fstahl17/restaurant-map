@@ -12,6 +12,7 @@
         center: { lat: 48.21327705958343, lng: 16.36358758074824 },
         zoom: 12,
         mapId: mapId,
+        gestureHandling: 'greedy',
         /*
         fullscreenControl: false,
         streetViewControl: false,
@@ -42,7 +43,7 @@
     function close() { overlayOpen = false; }
   </script>
   
-  <div style="height: 100vh; width: 100%;">
+  <div class="map-wrap">
     <APIProvider {apiKey} libraries={['marker']}>
       <GoogleMap id="map" options={mapOptions} mapContainerStyle="width: 100%; height: 100%;">
         {#each locations as location}
@@ -56,4 +57,15 @@
 
     <OverlayPanel placeId={selected} open={overlayOpen} onClose={close}></OverlayPanel>
   </div>
+
+  <style>
+    .map-wrap {
+    /* Variante A: dynamische Viewport-Höhe (iOS 16+ gut) */
+    height: 100dvh;
+    width: 100%;
+    /* Hilft Safari, Touch-Gesten direkt weiterzureichen */
+    touch-action: manipulation;
+  }
+  </style>
+
   
